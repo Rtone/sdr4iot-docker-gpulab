@@ -7,7 +7,7 @@
     - docker:18-dind
   before_script:
     - apk add make bash
-    - docker login $CI_REGISTRY -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" 
+    - docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" 
 
   script:
    - docker pull $CI_REGISTRY_IMAGE/$DOCKER_IMAGE:latest || echo "No previous image build found for $DOCKER_IMAGE"
