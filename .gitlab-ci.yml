@@ -30,5 +30,5 @@ build-sdr4iot-notebook:
   stage: build-notebook
   variables:
     <<: *base-variables
-    CI_REGISTRY_IMAGE: alexisduque
+    CI_REGISTRY_IMAGE: $CI_REGISTRY/sdr4iot/docker-gpulab-sdr4iot
     DOCKER_IMAGE: gpulab-tensorflow-sdr4iot

@@ -3,7 +3,7 @@ FROM gitlab.ilabt.imec.be:4567/ilabt/gpu-docker-stacks/tensorflow-notebook:cuda1
 # Set user as root so next commands run correctly
 USER root
 # Install dependencies
-RUN apt-get update && apt install graphviz libgraphviz-dev libcgraph6 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt install -y graphviz libgraphviz-dev libcgraph6 && rm -rf /var/lib/apt/lists/*
 # Install tensorflow 2.3, kerastuner and plotly
 RUN "${CONDA_DIR}/bin/pip" install --upgrade tensorflow==2.3 keras-tuner plotly
 
