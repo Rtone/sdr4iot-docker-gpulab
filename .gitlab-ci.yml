@@ -1,5 +1,5 @@
 .build-tag-push: &build-tag-push
-  image: docker:19-git
+  image: docker:git
   stage: build
   only:
     - pushes
