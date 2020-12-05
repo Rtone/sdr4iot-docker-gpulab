@@ -19,6 +19,7 @@
   script:
    - docker pull $CI_REGISTRY_IMAGE/$DOCKER_IMAGE:latest || echo "No previous image build found for $DOCKER_IMAGE"
    - docker build -t "$CI_REGISTRY_IMAGE/$DOCKER_IMAGE:$DOCKER_TAG" -t "$CI_REGISTRY_IMAGE/$DOCKER_IMAGE:$CI_COMMIT_SHA" -t "$CI_REGISTRY_IMAGE/$DOCKER_IMAGE:$CI_COMMIT_REF_SLUG" --cache-from "$CI_REGISTRY_IMAGE/$DOCKER_IMAGE:latest" .
+   - docker login "$CI_REGISTRY" -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" 
    - docker push $CI_REGISTRY_IMAGE/$DOCKER_IMAGE:latest                     
    - docker push $CI_REGISTRY_IMAGE/$DOCKER_IMAGE:$DOCKER_TAG
    - docker push $CI_REGISTRY_IMAGE/$DOCKER_IMAGE:$CI_COMMIT_REF_SLUG
